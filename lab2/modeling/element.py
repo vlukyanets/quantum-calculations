@@ -17,14 +17,17 @@ class Element:
             if line.driver is not None:
                 raise Exception("Line {} already has driver".format(line_index))
 
-        for line_index in input_line_numbers:
+        for line_index in output_line_numbers:
             line = circuit.get_line_by_index(line_index)
             pin = Pin(self, line)
             line.driver = weakref.ref(pin)
-            self.input_pins.append(pin)
+            self.output_pins.append(pin)
 
         for line_index in input_line_numbers:
             line = circuit.get_line_by_index(line_index)
             pin = Pin(self, line)
             line.drivens.append(weakref.ref(pin))
-            self.output_pins.append(pin)
+            self.input_pins.append(pin)
+
+    def __repr__(self):
+        return self.name

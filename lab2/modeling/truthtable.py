@@ -23,6 +23,7 @@ class Truthtable:
                 raise Exception("Value {} is not allowed as input in truthtable".format(logic_value_to_str(term)))
 
         self.truthtable_lines.append(line)
+        return self
 
     def __getitem__(self, key):
         for line in self.truthtable_lines:

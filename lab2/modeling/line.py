@@ -11,6 +11,6 @@ class Line:
         self.value = LogicValue.FALSE
 
     def propagate(self):
-        self.value = self.driver.value
+        self.value = self.driver().value
         for driven in self.drivens:
-            driven.value = self.value
+            driven().value = self.value
