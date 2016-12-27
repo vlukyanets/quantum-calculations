@@ -90,3 +90,7 @@ ENV/
 
 # PyCharm project files
 .idea/
+
+# Text files
+*.txt
+*.bak
